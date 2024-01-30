@@ -1,0 +1,2 @@
+# We dont want the model to be uploaded as it is 6gb
+*.bin
