@@ -1,0 +1,7 @@
+fastapi==0.109.0
+langchain==0.1.0
+langchain_community==0.0.12
+uvicorn==0.25.0
+sentence-transformers
+faiss-cpu
+ctransformers
