@@ -1,34 +1,66 @@
 # Retriever
-![img](./app/frontend/props/retriever.jpeg)
 
-This repo contains a llamav2 powered chatbot. I built it as part of a work application challenge.
-It ``retrieves`` information from a csv file which is found in ``./app/backend/data/listings.csv``.
+![Retriever](./app/frontend/props/retriever.jpeg)
 
-You may want to know which is the average price of the current listings, or which is the max price listed, to which 
-property it belongs and where it is located.
 
-In the notebooks folder, there are some EDA's from the challenge's data. I dropped the NAN's as there were few and then
-decided to use langchain and an open-source llama2-7b model.
+## Overview
 
+Retriever is a chatbot powered by llamav2, designed to retrieve information from a CSV file containing listings data.
+This project was initially developed as part of a work application challenge to
+showcase skills in building backend-frontend applications.
+
+## Project Structure
+
+- **app**: Contains the backend and frontend components of the chatbot.
+- **notebooks**: Contains exploratory data analysis (EDA) notebooks used during the development process.
+
+## Running the Chatbot
+
+To run the chatbot, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Navigate to the app directory of the project by running the command:
+   ```
+    cd app
+    ```
+3. Run the following command in your terminal:
+
+   ```
+   docker compose up -d --build
+   ```
+
+This command will launch two Docker containers: one for the frontend and one for the backend.
+
+## Frontend and Backend Components
+
+- **Frontend**: The frontend of the chatbot is built using Streamlit and is accessible via port `8501`.
+- **Backend**: The backend handles data retrieval and processing.
+  It communicates with the frontend to provide responses to user queries.
+
+## Usage
+
+Once the chatbot is running, access it through your web browser by visiting `http://localhost:8501`.
+
+## Improvements
+
+- Implement user input validation to prevent injection attacks.
+- Optimize performance by converting embeddings and models to llama.ccp framework.
+- Generate metrics for API usage to track performance and identify areas for improvement.
+- Scale up the app by implementing FastAPI routers in the API architecture.
+
+## Contributing
+
+Contributions to this project are welcome! If you'd like to contribute, please submit bug reports, 
+feature requests, or pull requests through GitHub or to ``omarafjo@gmail.com``
+
+## Contact
+
+For questions or support, please contact ``omarafjo@gmail.com``.
+
+## License
+
+This project is licensed under the MIT LICENCE. See the LICENSE file for more details.
 
 ---
-### Running the chatbot
-The app folder has all the files to build a compose docker file. Once downloading this repo, run the following command 
-in terminal
-``docker compose up -d --build``. This will launch a composed docker app made of 2 different dockers.
-
-The frontend docker will be running in the port ``8501`` so be sure to have it available, if not you may want to modify 
-the fronend-dockerfile and the docker-compose file.
-
-
----
-
-This is my first backend-frontend project and I'm happy to share it with the world.
-
-Things that can be improved:
-* There is not any user input check, so the user could prompt inject the model to generate a desired answer.
-* If wanted to improve performance, embeddings and models could be converted to llama.ccp framework.
-* It might be interesting to generate metrics of the API usage.
-
 
 
