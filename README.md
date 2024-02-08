@@ -16,9 +16,15 @@ showcase skills in building backend-frontend applications.
 
 ## Running the Chatbot
 
+### Prerequisites:
+You need to install docker. You can follow instructions from [this link](https://docs.docker.com/engine/install/).
+
+### Instructions
 To run the chatbot, follow these steps:
 
 1. Clone this repository to your local machine.
+2. Download the ``llama-2-7b-chat.ggmlv3.q8_0`` model from [this repo](https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGUF/tree/main)
+3. Locate the model into the ``./app/backend/models`` folder.
 2. Navigate to the app directory of the project by running the command:
    ```
     cd app
