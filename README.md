@@ -46,7 +46,9 @@ This command will launch two Docker containers: one for the frontend and one for
 ## Usage
 
 Once the chatbot is running, access it through your web browser by visiting `http://localhost:8501`.
+Here are some examples of ``retriever`` running.
 
+![](./app/frontend/props/Example.png)
 ## Improvements
 
 - Implement user input validation to prevent injection attacks.

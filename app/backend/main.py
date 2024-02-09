@@ -1,10 +1,12 @@
 from fastapi import FastAPI
 import uvicorn
-from response_generator import response_call
+from response_generator import ResponseGenerator
 from typing import Any, List, Union, Tuple
 from pydantic import BaseModel
 
 app = FastAPI()
+response_generator = ResponseGenerator()
+
 
 class Question(BaseModel):
     prompt:str
@@ -17,7 +19,8 @@ def read_root():
 
 @app.get('/v0/get_response/')
 def get_response(question:Question):
-    answer = response_call(question.prompt, question.session_state)
+    answer = response_generator(question.prompt, question.session_state)
+    print(answer)
     return {"Answer": answer}
 
 
