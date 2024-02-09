@@ -4,7 +4,6 @@ from PIL import Image
 img = Image.open('./props/retriever.jpeg')
 
 
-
 # Define title
 st.title('Welcome to the challenge chatbot')
 st.text('code_name: Retriever')
@@ -32,23 +31,21 @@ if prompt:
     with st.chat_message("user"):
         st.markdown(prompt)
 
-
-    # Add user message to chat history
-    ''''
-    Debería ser después de enviar el prompt, podría agregarse junto con la respuesta
-    '''
-    st.session_state.messages.append({"role": "user", "content": prompt})
-
-
     response = requests.get('http://backend:8000/v0/get_response/',
                             json={'prompt': prompt,
-                                  'session_state': [tuple(("role: "+m['role'], "content: "+m['content'])) for m in st.session_state.messages]},
+                                  'session_state': [tuple(("role: "+m['role'],
+                                                           "content: "+m['content']))
+                                                    for m in st.session_state.messages]},
                             timeout=100000)
+
     answer = response.json()['Answer']
 
     # Display assistant response in chat
     with st.chat_message("assistant"):
         st.markdown(answer)
+
+    # Add user message to chat history
+    st.session_state.messages.append({"role": "user", "content": prompt})
 
     st.session_state.messages.append({"role": "assistant", "content": answer})
 
